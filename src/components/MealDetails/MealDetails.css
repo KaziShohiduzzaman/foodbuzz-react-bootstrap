@@ -1,0 +1,16 @@
+.details-card{
+    width: 70%;
+    border: 2px solid rgb(51, 186, 240);
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: lightcyan;
+    border-radius: 10px;
+    text-align: center;
+}
+.img-details{
+    margin-top: 10px;
+    height: 300px;
+    border: 2px solid rgb(51, 186, 240);
+}
