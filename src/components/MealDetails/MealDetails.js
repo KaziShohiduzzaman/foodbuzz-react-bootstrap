@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { Image, Button } from 'react-bootstrap';
+import { Image, Button, Spinner } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router';
 import './MealDetails.css'
 
@@ -18,12 +18,20 @@ const MealDetails = () => {
         history.push('/home')
     }
     return (
-        <div className='details-card bg-dark text-white'>
-            <Image className='img-details' src={details.strMealThumb} roundedCircle fluid />
-            <h2 className='mt-2'>Food Name: {details.strMeal}</h2>
-            <h4 className='mt-2'>Category: {details.strCategory}, Food area: {details.strArea}</h4>
-            <p className='p-3'>Instructions: {details.strInstructions}</p>
-            <Button className='bg-dark' onClick={handleDetailClick}>Go to HomePage</Button>
+        <div>
+            {
+                details.length === 0 ?
+                    <Spinner className='d-block mx-auto my-4' animation="border" variant="warning" />
+                    :
+                    <div className='details-card bg-dark text-white'>
+                        <Image className='img-details' src={details.strMealThumb} roundedCircle fluid />
+                        <h2 className='mt-2'>Food Name: {details.strMeal}</h2>
+                        <h4 className='mt-2'>Category: {details.strCategory}, Food area: {details.strArea}</h4>
+                        <p className='p-3'>Instructions: {details.strInstructions}</p>
+                        <Button className='bg-dark' onClick={handleDetailClick}>Go to HomePage</Button>
+                    </div>
+            }
+
         </div>
     );
 };

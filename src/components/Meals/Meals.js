@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { FormControl, Row } from 'react-bootstrap';
+import { FormControl, Row, Spinner } from 'react-bootstrap';
 import Meal from '../Meal/Meal';
 import './Meals.css'
 
@@ -28,11 +28,17 @@ const Meals = () => {
                 />
             </div>
             <div className='mt-4'>
-                <Row xs={1} md={3} className="g-4">
-                    {
-                        meals.map(meal => <Meal key={meal.IdMeal} meal={meal}></Meal>)
-                    }
-                </Row>
+                {
+                    meals.length === 0 ?
+                        <Spinner className='d-block mx-auto my-4' animation="border" variant="warning" />
+                        :
+                        <Row xs={1} md={3} className="g-4">
+                            {
+                                meals.map(meal => <Meal key={meal.IdMeal} meal={meal}></Meal>)
+                            }
+                        </Row>
+                }
+
             </div>
         </div>
     );
